@@ -123,9 +123,9 @@ public class cabinet extends JFrame {
         try {
             Class.forName("oracle.jdbc.driver.OracleDriver");
 
-            String url = "jdbc:oracle:thin:@//localhost:1521/pdb_ziad";
-            String user = "ahmed";
-            String password = "ziad";
+            String url = "jdbc:oracle:thin:@//localhost:1521/**";
+            String user = "**";
+            String password = "**";
             connection = DriverManager.getConnection(url, user, password);
 
             String query = "SELECT COUNT(*) FROM patients WHERE cin = ?";
@@ -169,9 +169,9 @@ public class cabinet extends JFrame {
         String cin = cinField.getText();
         Patient patient = null;
 
-        String url = "jdbc:oracle:thin:@//localhost:1521/pdb_ziad";
-        String user = "ahmed";
-        String password = "ziad";
+        String url = "jdbc:oracle:thin:@//localhost:1521/**";
+        String user = "**";
+        String password = "**";
         try (Connection connection = DriverManager.getConnection(url, user, password)) {
             String query = "SELECT * FROM patients WHERE cin = ?";
             try (PreparedStatement statement = connection.prepareStatement(query)) {
@@ -209,7 +209,7 @@ public class cabinet extends JFrame {
         String cin = TxtCin.getText();
         Patient patient = null;
 
-        try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/pdb_ziad", "ahmed", "ziad")) {
+        try (Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/**", "**", "**")) {
             String query = "SELECT * FROM patients WHERE cin = ?";
             PreparedStatement pstmt = conn.prepareStatement(query);
             pstmt.setString(1, cin);
@@ -229,7 +229,7 @@ public class cabinet extends JFrame {
             String maladie = TxtMaladie.getText();
             String medicament = TxtMedicament.getText();
 
-            try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/pdb_ziad", "ahmed", "ziad")) {
+            try (Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/**", "**", "**")) {
                 String query = "UPDATE patients SET fullname = ?, addresse = ?, sexe = ?, maladie = ?, medicament = ? WHERE cin = ?";
                 PreparedStatement statement = connection.prepareStatement(query);
                 statement.setString(1, fullName);
